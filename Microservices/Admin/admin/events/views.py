@@ -1,4 +1,3 @@
-import re
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import render
@@ -6,6 +5,7 @@ from rest_framework import serializers, viewsets
 from rest_framework.permissions import IsAuthenticated, IsAdminUser, AllowAny
 from . models import Event
 from . serializers import EventSerializer
+from . producer import publish
 
 # Create your views here.
 
@@ -24,6 +24,7 @@ class EventViewSet(viewsets.ViewSet):
     
     def list(self, request):
         serializer = self.serializer_class(self.queryset, many=True)
+        publish()
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def create(self, request):
