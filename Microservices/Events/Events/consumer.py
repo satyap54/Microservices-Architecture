@@ -46,7 +46,7 @@ async def callback(message: aiormq.types.DeliveredMessage):
     data = json.loads(message.body)
    
     if(properties.content_type == 'event_created'):
-        new_event = Event(pk=data['id'], title=data['title'], image=data['image'])
+        new_event = Event(id=data['id'], title=data['title'], image=data['image'])
         await new_event.save()
     elif(properties.content_type == 'event_updated'):
         event = await Event.get(id=data['id'])
