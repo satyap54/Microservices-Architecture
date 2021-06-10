@@ -1,1 +1,1 @@
-from . import dependencies, models, consumer
+from . import dependencies, models, consumer, producer

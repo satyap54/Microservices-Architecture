@@ -1,6 +1,4 @@
-from pydantic import BaseModel, ValidationError, EmailStr, PositiveInt, validator
-from typing import Optional
-from fastapi import APIRouter
+from pydantic import BaseModel, EmailStr, PositiveInt
 from fastapi.security import OAuth2PasswordBearer
 from fastapi import Depends, HTTPException, status
 import jwt

@@ -39,7 +39,7 @@ class EventViewSet(viewsets.ViewSet):
         }, status=status.HTTP_201_CREATED)
 
     def retrieve(self, request, pk=None):
-        obj = self.queryset.objects.get(pk=pk)
+        obj = self.queryset.get(pk=pk)
         serializer = self.serializer_class(obj)
         return Response({
             "success": "True",

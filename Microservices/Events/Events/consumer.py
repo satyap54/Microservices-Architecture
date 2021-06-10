@@ -5,38 +5,6 @@ import aiormq
 import aiormq.types
 
 
-'''
-params = pika.URLParameters('amqps://wdwlltwy:mVmwRY959Xx61jK21X_PfoFr8tcgHIBg@cow.rmq2.cloudamqp.com/wdwlltwy')
-
-connection = pika.BlockingConnection(params)
-channel = connection.channel()
-channel.queue_declare(queue='event')
-
-
-async def callback(ch, method, properties, body):
-    print("Received in event")
-    data = json.loads(body)
-    print(data)
-
-    if(properties.content_type == 'event_created'):
-        new_event = await Event.create(id=data['id'], title=data['title'], image=data['image'])
-    elif(properties.content_type == 'event_updated'):
-        event = await Event.get(id=data['id'])
-        event.title = data['title']
-        event.image = data['image']
-        await event.save()
-    elif(properties.content_type == 'event_deleted'):
-        event = await Event.get(id=data)
-        await event.delete() 
-
-
-async def channel_setup():
-    channel.basic_consume(queue='event', on_message_callback=callback, auto_ack=True)
-    print('started consuming')
-    channel.start_consuming()
-    channel.close()
-'''
-
 async def callback(message: aiormq.types.DeliveredMessage):
     print("Received in event")
     #print(dir(message.header.properties.content_type))
