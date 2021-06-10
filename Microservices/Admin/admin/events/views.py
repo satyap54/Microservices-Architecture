@@ -24,7 +24,6 @@ class EventViewSet(viewsets.ViewSet):
     
     def list(self, request):
         serializer = self.serializer_class(self.queryset, many=True)
-        publish()
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def create(self, request):
@@ -32,6 +31,7 @@ class EventViewSet(viewsets.ViewSet):
         if not serializer.is_valid():
             raise ValueError("Invalid Data")
         serializer.save()
+        publish('event_created', serializer.data)
         return Response({
             "success": "True",
             "code": status.HTTP_200_OK,
@@ -52,6 +52,7 @@ class EventViewSet(viewsets.ViewSet):
         serializer = self.serializer_class(instance=obj, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
+        publish('event_updated', serializer.data)
         return Response({
             "success": "True",
             "code": status.HTTP_200_OK,
@@ -60,6 +61,7 @@ class EventViewSet(viewsets.ViewSet):
     def destroy(self, request, pk=None):
         obj = self.queryset.get(pk=pk)
         obj.delete()
+        publish('event_deleted', pk)
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     def get_permissions(self):
