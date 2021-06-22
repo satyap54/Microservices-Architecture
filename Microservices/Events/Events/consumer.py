@@ -30,7 +30,7 @@ async def callback(message: aiormq.types.DeliveredMessage):
     )
 
 async def consume():
-    connection = await aiormq.connect('amqps://wdwlltwy:mVmwRY959Xx61jK21X_PfoFr8tcgHIBg@cow.rmq2.cloudamqp.com/wdwlltwy')
+    connection = await aiormq.connect('')
     channel = await connection.channel()
     print("started consuming")
 
