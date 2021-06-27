@@ -2,7 +2,7 @@
 
 ![](https://github.com/satyap54/Microservices-Architecture/blob/main/Microservices/Architecture-diagram.png)
 
-#### Admin service
+#### Admin service (Django)
 Contains end-points to manage accounts and post data on the platform. The end-points enable admin to manage all the user-accounts as well as post data to other services. Users can use some of the end-points for authentication.
 
 Method	| Path	| Description	| Authenticated	User | Admin Only | Allow Any
@@ -16,7 +16,7 @@ GET	| api/events/{pk}	| Get details of a particular event	|  x |  |
 PUT	| api/events/{pk}	| Update a particular event	|  | x |
 DELETE	| api/events/{pk}	| Delete a particular event	|   | x |
 
-#### Event service
+#### Event service (FastAPI)
 Stores information about the attendees of an event.
 
 Method	| Path	| Description	| Authenticated	User | Admin Only | Allow Any
