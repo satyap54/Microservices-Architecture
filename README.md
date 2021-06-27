@@ -1,6 +1,7 @@
 # Microservices Architecture
 
 ![](https://github.com/satyap54/Microservices-Architecture/blob/main/Microservices/Architecture-diagram.png)
+This is a project, which demonstrates Microservice Architecture Pattern Python's backend frameworks and RabbitMQ.
 
 #### Admin service (Django)
 Contains end-points to manage accounts and post data on the platform. The end-points enable admin to manage all the user-accounts as well as post data to other services. Users can use some of the end-points for authentication.
