@@ -24,3 +24,7 @@ Method	| Path	| Description	| Authenticated	User | Admin Only | Allow Any
 ------------- | ------------------------- | ------------- |:-------------:|:----------------:|:----------------:|
 GET	| /api/events/	| Lists active events	| x | | 
 POST| /api/events/{event_id}/attend	| Let the admin know that you'll attend the event with this id	| x | | 
+
+#### Asynchronous microservices communication
+Intercommunication between microservices happens asynchronously with the help of RabbitMQ.
+![](https://github.com/satyap54/Microservices-Architecture/blob/main/Screenshot%20from%202021-06-27%2022-42-41.png)
