@@ -14,3 +14,11 @@ POST	| api/events/	| Post about a new event	|  | x |
 GET	| api/events/{pk}	| Get details of a particular event	|  x |  |
 PUT	| api/events/{pk}	| Update a particular event	|  | x |
 DELETE	| api/events/{pk}	| Delete a particular event	|   | x |
+
+#### Event service
+Stores information about the attendees of an event.
+
+Method	| Path	| Description	| Authenticated	User | Admin Only | Allow Any
+------------- | ------------------------- | ------------- |:-------------:|:----------------:|:----------------:|
+GET	| /api/events/	| Lists active events	| x | | 
+POST| /api/events/{event_id}/attend	| Let the admin know that you'll attend the event with this id	| x | | 
