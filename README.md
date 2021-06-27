@@ -1,6 +1,6 @@
 # Microservices Architecture
 
-![](https://github.com/satyap54/Microservices-Architecture/blob/main/Microservices/Microservices-Architecture.drawio)
+![](https://github.com/satyap54/Microservices-Architecture/blob/main/Microservices/Architecture-diagram.png)
 
 #### Admin service
 Contains end-points to manage accounts and post data on the platform. The end-points enable admin to manage all the user-accounts as well as post data to other services. Users can use some of the end-points for authentication.
